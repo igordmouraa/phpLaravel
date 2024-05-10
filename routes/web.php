@@ -1,14 +1,13 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProdutoController;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::resource('produtos', ProdutoController::class);
 
-Route::get('/initial', function(){
-    return view('init');
-});
+// Route::get('/initial', function(){
+//     return view('init');
+// });
 
 // Usando prefix
 // Route::prefix('admin')->group(function(){
@@ -26,19 +25,19 @@ Route::get('/initial', function(){
 // });
 
 // Usando name
-Route::name('admin')->group(function(){
-    Route::get('/admin/dashboard', function(){
-        return "dashboard";
-    })->name('admin.dashboard');
+// Route::name('admin')->group(function(){
+//     Route::get('/admin/dashboard', function(){
+//         return "dashboard";
+//     })->name('admin.dashboard');
     
-    Route::get('/admin/users', function(){
-        return "users";
-    })->name('admin.users');
+//     Route::get('/admin/users', function(){
+//         return "users";
+//     })->name('admin.users');
     
-    Route::get('/admin/clientes', function(){
-        return "clientes";
-    })->name('admin.clientes');
-});
+//     Route::get('/admin/clientes', function(){
+//         return "clientes";
+//     })->name('admin.clientes');
+// });
 
 // Route::any('/any', function(){
 //     return 'Permite todo tipo de requisição(post, put, get, delete)';
