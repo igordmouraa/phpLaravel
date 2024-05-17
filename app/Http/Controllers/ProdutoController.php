@@ -16,10 +16,9 @@ class ProdutoController extends Controller
         // $produtos = Produto::all();
         // dd($produtos);
 
-        $nome = 'Igor';
-        $idade = '18';
-
-        return view('site.home', compact('nome', 'idade'));
+        $produtos = Produto::paginate(3);
+        
+        return view('site.home', compact('produtos'));
     }
 
     /**
